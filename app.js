@@ -7,6 +7,8 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var usersRouter = require('./routes/users');
+var stackoverflowRoutes = require('./api/stackoverflowRoutes');
+
 
 var app = express();
 
@@ -25,10 +27,8 @@ app.use(
     })
   );
 
-// app.use(
-//     cors()
-//   );
-
 app.use('/users', usersRouter);
+app.use('/api',stackoverflowRoutes);
 
 module.exports = app;
+
