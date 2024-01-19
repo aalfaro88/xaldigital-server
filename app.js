@@ -8,6 +8,7 @@ var cors = require('cors');
 
 var usersRouter = require('./routes/users');
 var stackoverflowRoutes = require('./api/stackoverflowRoutes');
+var flightsRoutes = require('./routes/flightsRoutes');
 
 
 var app = express();
@@ -29,6 +30,7 @@ app.use(
 
 app.use('/users', usersRouter);
 app.use('/api',stackoverflowRoutes);
+app.use('/flights',flightsRoutes);
 
 module.exports = app;
 
