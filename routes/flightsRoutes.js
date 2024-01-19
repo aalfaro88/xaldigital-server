@@ -1,7 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./api/flightData.db');
+const https = require('https');
+const fs = require('fs');
+
+
+const githubRawUrl = 'https://github.com/aalfaro88/xaldigital-server/raw/main/api/flightData.db';
+
+
+const localFilePath = './api/flightData.db';
+
+
+const file = fs.createWriteStream(localFilePath);
+https.get(githubRawUrl, (response) => {
+  response.pipe(file);
+});
+
+
+const db = new sqlite3.Database(localFilePath);
+
+
 
 router.get('/fetch-flights', (req, res) => {
     const query = `
