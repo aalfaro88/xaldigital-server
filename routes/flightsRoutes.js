@@ -5,8 +5,7 @@ const https = require('https');
 const fs = require('fs');
 
 
-const githubRawUrl = 'https://github.com/aalfaro88/xaldigital-server/raw/main/api/flightData.db';
-
+const githubRawUrl = process.env.GITHUB_LINK;
 
 const localFilePath = './api/flightData.db';
 
