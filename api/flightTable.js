@@ -1,3 +1,5 @@
+// server/api/flightTable.js
+
 // Import the sqlite3 library
 const sqlite3 = require('sqlite3').verbose();
 
